@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    'use strict';
+    // Selection Sort - O(n^2)
+    // Parameter:
+    //  1. random array
+
+    // 1. Finds the smallest value in an array
+    function findSmallestIndex(array) {
+        // let array = [2, 13, 4, 6, 18, 21, 1];
+        var smallestElement = array[0];
+        var smallestIndex = 0;
+
+        for (var i = 1; i < array.length; i++) {
+            if (array[i] < smallestElement) {
+                smallestElement = array[i];
+                smallestIndex = i;
+            }
+        }
+        return smallestIndex;
+    }
+
+    // 2. Sort the array
+    function selectionSort(array) {
+        var sortedArray = [];
+        var length = array.length;
+
+        for (var i = 0; i < length; i++) {
+            // Finds the smallest element in the array 
+            var smallestIndex = findSmallestIndex(array);
+            // Adds the smallest element to new array
+            sortedArray.push(array.splice(smallestIndex, 1)[0]);
+        }
+
+        return sortedArray;
+    }
+
+    console.log(selectionSort([5, 3, 6, 2, 10, 11, 1, 17])); 
+</script>
+
+<body>
+
+</body>
+
+</html>
